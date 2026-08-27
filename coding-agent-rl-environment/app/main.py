@@ -16,9 +16,7 @@ def get_order_total(order_id: int):
     tax = 25.0
 
     discount_amount = subtotal * (discount_percent / 100)
-    #discount_amount =discount_percent
-    #total = subtotal - discount_amount + shipping + tax
-    total =240.0
+    total = subtotal - discount_amount + shipping + tax
     return {
         "order_id": order_id,
         "subtotal": subtotal,
