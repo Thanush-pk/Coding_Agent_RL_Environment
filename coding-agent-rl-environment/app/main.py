@@ -1,27 +1,23 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from app.models.order import Order
+from app.services.order_service import calculate_order_total
+
+
+app = FastAPI(
+    title="OrderFlow API",
+    description="E-commerce order calculation API",
+)
 
 
 @app.get("/")
 def root():
-    return {"message": "E-commerce Order API"}
-
-
-@app.get("/orders/{order_id}/total")
-def get_order_total(order_id: int):
-    subtotal = 250.0
-    discount_percent = 20.0
-    shipping = 15.0
-    tax = 25.0
-
-    discount_amount = subtotal * (discount_percent / 100)
-    total = subtotal - discount_amount + shipping + tax
     return {
-        "order_id": order_id,
-        "subtotal": subtotal,
-        "discount_percent": discount_percent,
-        "shipping": shipping,
-        "tax": tax,
-        "total": total,
+        "message": "OrderFlow API",
+        "version": "1.0.0",
     }
+
+
+@app.post("/orders/calculate")
+def calculate_order(order: Order):
+    return calculate_order_total(order)
