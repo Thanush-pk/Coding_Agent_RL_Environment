@@ -144,4 +144,4 @@ Contributions are welcome! Please feel free to open an issue or submit a pull re
 
 ## 📜 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the Apache License. See `LICENSE` for more information.
